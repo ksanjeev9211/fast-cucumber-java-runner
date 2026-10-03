@@ -1,0 +1,55 @@
+{
+  "name": "fast-cucumber-java-runner",
+  "displayName": "Fast Cucumber Java Runner",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Testing"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "extensionDependencies": [
+    "redhat.java",
+    "vscjava.vscode-java-debug"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "gherkin",
+        "aliases": ["Gherkin", "cucumber", "feature"],
+        "extensions": [".feature"]
+      }
+    ],
+    "commands": [
+      {
+        "command": "fastCucumber.runScenario",
+        "title": "Fast Cucumber: Run Scenario"
+      },
+      {
+        "command": "fastCucumber.debugScenario",
+        "title": "Fast Cucumber: Debug Scenario"
+      },
+      {
+        "command": "fastCucumber.runAllScenarios",
+        "title": "Fast Cucumber: Run All Scenarios"
+      },
+      {
+        "command": "fastCucumber.debugAllScenarios",
+        "title": "Fast Cucumber: Debug All Scenarios"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
