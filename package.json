@@ -1,7 +1,12 @@
 {
   "name": "fast-cucumber-java-runner",
   "displayName": "Fast Cucumber Java Runner",
+  "publisher": "ksanjeev9211",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ksanjeev9211/fast-cucumber-java-runner.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -9,11 +14,13 @@
     "Testing"
   ],
   "activationEvents": [
-    "*",
+    "onLanguage:gherkin",
+    "onLanguage:feature",
     "onCommand:fastCucumber.runScenario",
     "onCommand:fastCucumber.debugScenario",
     "onCommand:fastCucumber.runAllScenarios",
-    "onCommand:fastCucumber.debugAllScenarios"
+    "onCommand:fastCucumber.debugAllScenarios",
+    "onCommand:fastCucumber.showLogs"
   ],
   "extensionDependencies": [
     "redhat.java",
