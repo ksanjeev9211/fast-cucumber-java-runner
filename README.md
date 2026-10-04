@@ -1,5 +1,7 @@
 # Fast Cucumber Java Runner
 
+![Fast Cucumber Java Runner icon](icon.png)
+
 Fast Cucumber Java Runner is a VS Code extension for running and debugging
 Cucumber scenarios from `.feature` files in Java Maven projects. It uses the
 Java Debugger extension to launch Cucumber's `io.cucumber.core.cli.Main`

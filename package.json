@@ -2,11 +2,12 @@
   "name": "fast-cucumber-java-runner",
   "displayName": "Fast Cucumber Java Runner",
   "publisher": "ksanjeev9211",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/ksanjeev9211/fast-cucumber-java-runner.git"
   },
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -35,8 +36,14 @@
     "languages": [
       {
         "id": "gherkin",
-        "aliases": ["Gherkin", "cucumber", "feature"],
-        "extensions": [".feature"]
+        "aliases": [
+          "Gherkin",
+          "cucumber",
+          "feature"
+        ],
+        "extensions": [
+          ".feature"
+        ]
       }
     ],
     "commands": [
