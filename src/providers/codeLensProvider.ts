@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { logInfo } from '../utils/logger';
 
 export class FeatureCodeLensProvider implements vscode.CodeLensProvider, vscode.Disposable {
     private readonly onDocumentChange: vscode.Disposable;
@@ -18,10 +19,12 @@ export class FeatureCodeLensProvider implements vscode.CodeLensProvider, vscode.
         token: vscode.CancellationToken
     ): vscode.CodeLens[] {
         if (token.isCancellationRequested) {
+            logInfo(`CodeLens request cancelled for ${document.uri.toString()}`);
             return [];
         }
 
         const codeLenses: vscode.CodeLens[] = [];
+        let matchedLines = 0;
         const featureLine = /^\s*Feature\s*:/i;
         const scenarioLine = /^\s*Scenario(?:\s+Outline)?\s*:/i;
 
@@ -58,9 +61,11 @@ export class FeatureCodeLensProvider implements vscode.CodeLensProvider, vscode.
                 const range = new vscode.Range(line, 0, line, 0);
                 codeLenses.push(new vscode.CodeLens(range, runCommand));
                 codeLenses.push(new vscode.CodeLens(range, debugCommand));
+                matchedLines++;
             }
         }
 
+        logInfo(`CodeLens requested for ${document.uri.toString()} (language=${document.languageId}); matched ${matchedLines} feature/scenario lines and returned ${codeLenses.length} lenses.`);
         return codeLenses;
     }
 

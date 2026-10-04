@@ -9,7 +9,11 @@
     "Testing"
   ],
   "activationEvents": [
-    "*"
+    "*",
+    "onCommand:fastCucumber.runScenario",
+    "onCommand:fastCucumber.debugScenario",
+    "onCommand:fastCucumber.runAllScenarios",
+    "onCommand:fastCucumber.debugAllScenarios"
   ],
   "extensionDependencies": [
     "redhat.java",
@@ -17,6 +21,10 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configurationDefaults": {
+      "editor.codeLens": true,
+      "testing.gutterEnabled": true
+    },
     "languages": [
       {
         "id": "gherkin",
@@ -40,6 +48,10 @@
       {
         "command": "fastCucumber.debugAllScenarios",
         "title": "Fast Cucumber: Debug All Scenarios"
+      },
+      {
+        "command": "fastCucumber.showLogs",
+        "title": "Fast Cucumber: Show Diagnostic Logs"
       }
     ]
   },
